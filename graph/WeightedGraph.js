@@ -48,7 +48,7 @@ class WeightedGraph extends Graph{
         }
         break;
       }
-      if (shortestPath || distanceTo[shortestPath] !== Infinity) {
+      if (distanceTo[shortestPath] !== Infinity) {
         for (let city in this.routeList[shortestPath]) {
           let next = this.routeList[shortestPath][city];
           // distanceTo obj > key = seattle, value = 0 (at seattle) +
@@ -63,6 +63,9 @@ class WeightedGraph extends Graph{
         }
       }
     }
+    console.log(distanceTo);
+    console.log(beenTo);
+    console.log(stops);
     return shortestTotalDistance.concat(shortestPath).reverse();
   }
 }
